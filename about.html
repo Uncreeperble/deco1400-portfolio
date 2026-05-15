@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--
+  about.html — About Me page
+
+  STRUCTURE:
+    .page-header        ← title bar
+    .about-hero         ← big quote / intro paragraph
+    .image-grid         ← 3 photo cards (coding-setup, hackathon, nature)
+    .story-section      ← free-text paragraphs about your background
+    .hobby-highlight    ← yellow card for trumpet / music highlight
+    .interests-grid     ← grid of interest cards (icon + title + description)
+
+  TO EDIT:
+    • Intro text       → .about-hero h1 and p
+    • Story paragraphs → the <p> tags inside .story-section
+    • Photo grid       → swap the 3 <img src> paths (images/*.jpg)
+    • Trumpet section  → edit .hobby-highlight-content h4 and p
+    • Trumpet photo    → .hobby-highlight-img src (images/trumpet.jpg)
+
+  TO ADD AN INTEREST CARD:
+    Copy one <div class="interest-card"> block inside .interests-grid.
+    Icon classes come from Bootstrap Icons (bi-*), full list: https://icons.getbootstrap.com/
+    TEMPLATE:
+      <div class="interest-card">
+        <i class="bi bi-music-note-beamed"></i>
+        <h4>Interest Name</h4>
+        <p>One sentence describing it.</p>
+      </div>
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Ben Evans</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="fonts/bootstrap-icons/bootstrap-icons.min.css">
+</head>
+<body>
+
+<!-- ===== MOBILE TOP BAR (hidden on desktop) ===== -->
+<div class="mobile-topbar">
+    <button class="hamburger-btn" id="sidebarToggle" aria-label="Open navigation">
+        <i class="bi bi-list"></i>
+    </button>
+    <span class="mobile-topbar-title">Ben Evans</span>
+    <div class="hamburger-spacer"></div>
+</div>
+<div class="container">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation"><i class="bi bi-x-lg"></i></button>
+        <div class="profile-section">
+            <img src="./images/profile_image.png" class="profile-image-small" alt="Profile">
+            <div class="profile-text">
+                <h1 class="profile-name">Ben Evans</h1>
+                <p class="profile-sub">Software Engineer</p>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="bi bi-house"></i>Home</a></li>
+                <li><a href="projects.html"><i class="bi bi-code-slash"></i>Projects</a></li>
+                <li><a href="education.html"><i class="bi bi-mortarboard"></i>Education</a></li>
+                <li><a href="employment.html"><i class="bi bi-briefcase"></i>Employment</a></li>
+                <li><a href="about.html" class="active"><i class="bi bi-person"></i>About</a></li>
+                <li><a href="contact.html"><i class="bi bi-envelope"></i>Contact</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-content">
+        <header class="page-header">
+            <div>
+                <h1>About Me</h1>
+                <p>Who I am, what I do, and what drives me</p>
+            </div>
+        </header>
+
+        <div class="content-area">
+            <div class="about-hero">
+                <h1>Building the Future, One Line of Code at a Time</h1>
+                <p>I'm a Computer Science student at the University of Queensland with a deep passion for software engineering, AI, and building things that make a real difference. When I'm not coding, you'll find me making music, exploring the outdoors, or planning my next adventure.</p>
+            </div>
+
+            <!-- Image Grid with real stock photos -->
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="./images/coding-setup.jpg" alt="Coding setup" loading="lazy">
+                    <div class="image-caption">Late night coding sessions</div>
+                </div>
+                <div class="image-card">
+                    <img src="./images/hackathon.jpg" alt="Hackathon" loading="lazy">
+                    <div class="image-caption">Hackathon victories</div>
+                </div>
+                <div class="image-card">
+                    <img src="./images/nature.jpg" alt="Nature" loading="lazy">
+                    <div class="image-caption">Finding balance outdoors</div>
+                </div>
+            </div>
+
+            <!-- My Story -->
+            <div class="content-section story-section">
+                <h3>My Story</h3>
+                <p>
+                    My journey into software engineering began when I was 14, building simple games in Python during school holidays. 
+                    What started as a curiosity quickly became an obsession — I loved the feeling of creating something from nothing, 
+                    of solving puzzles that seemed impossible at first glance.
+                </p>
+                <p>
+                    Today, I'm pursuing a Bachelor of Computer Science at UQ, specialising in Statistical Learning and AI. 
+                    I've had the privilege of working as a research assistant in the NLP lab, interning at a tech company, 
+                    and building products for real clients through freelancing. Each experience has taught me something new 
+                    about the craft of software engineering — and about myself.
+                </p>
+                <p>
+                    Next week I'm heading to Japan for 10 days — a trip I've been planning for months. I can't wait to explore 
+                    the tech culture in Tokyo, visit some historic temples in Kyoto, and try as much ramen as possible. 
+                    I believe the best engineers are well-rounded people who bring diverse perspectives to their work, 
+                    and travel is one of the best ways to gain those perspectives.
+                </p>
+            </div>
+
+            <!-- Music & Community -->
+            <div class="content-section">
+                <h3 class="section-title">
+                    <i class="bi bi-music-note"></i>
+                    Music &amp; Community
+                </h3>
+                <div class="hobby-highlight">
+                    <img src="./images/trumpet.jpg" alt="Trumpet" class="hobby-highlight-img" loading="lazy">
+                    <div class="hobby-highlight-content">
+                        <h4>Treasurer &amp; Trumpet Player — Beaudesert Community Instrumental Ensemble</h4>
+                        <p>I've been playing trumpet with the Beaudesert Community Instrumental Ensemble for several years, serving as the ensemble's treasurer. It's a wonderful community group that brings together musicians of all ages. We recently performed at the ANZAC Day commemoration services — a humbling experience to play the Last Post and be part of such an important tradition. The ensemble has taught me the value of teamwork, discipline, and showing up for your community — skills that translate directly into my software engineering work.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interests & Hobbies -->
+            <div class="content-section">
+                <h3 class="section-title">
+                    <i class="bi bi-heart"></i>
+                    Interests &amp; Hobbies
+                </h3>
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <i class="bi bi-cpu"></i>
+                        <h4>AI &amp; ML</h4>
+                        <p>Exploring the frontiers of machine learning and neural network architectures</p>
+                    </div>
+                    <div class="interest-card">
+                        <i class="bi bi-music-note"></i>
+                        <h4>Trumpet</h4>
+                        <p>Playing with the Beaudesert Community Instrumental Ensemble</p>
+                    </div>
+                    <div class="interest-card">
+                        <i class="bi bi-tree"></i>
+                        <h4>Hiking</h4>
+                        <p>Exploring Queensland's national parks and mountain trails</p>
+                    </div>
+                    <div class="interest-card">
+                        <i class="bi bi-camera"></i>
+                        <h4>Photography</h4>
+                        <p>Capturing landscapes, architecture, and travel moments</p>
+                    </div>
+                    <div class="interest-card">
+                        <i class="bi bi-globe"></i>
+                        <h4>Travel</h4>
+                        <p>Japan trip coming up — 10 days of exploration!</p>
+                    </div>
+                    <div class="interest-card">
+                        <i class="bi bi-book"></i>
+                        <h4>Reading</h4>
+                        <p>Sci-fi novels, tech blogs, and research papers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <div class="footer-left">
+                <p>&copy; 2026 Ben Evans</p>
+                <a href="index.html" class="footer-home-btn"><i class="bi bi-house"></i> Back to Home</a>
+            </div>
+            <div class="footer-right">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </footer>
+    </main>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

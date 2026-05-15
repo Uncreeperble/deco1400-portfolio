@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--
+  projects.html — Projects & Hackathons page
+
+  STRUCTURE:
+    .page-header      ← title + search bar
+    .filter-tabs      ← category filter buttons (All / Web / Mobile / AI/ML)
+    .projects-grid    ← grid of project cards
+    .achievement-item ← hackathon / award rows below the grid
+    #projectModal     ← hidden detail popup (populated by projects.js)
+
+  TO ADD A PROJECT:
+    1. Copy a <article class="project-card"> block into #projectsGrid
+    2. Set data-category="web" | "mobile" | "ai" (used by filter buttons)
+    3. Put your banner image in images/ and update the <img src>
+    4. Make the <h3> text unique — it's the key used by projects.js for the modal
+    5. Add a matching entry in js/projects.js → projectData
+
+  TO ADD AN ACHIEVEMENT ROW:
+    Copy a <div class="achievement-item"> block after the grid.
+    Change the icon class (achievement-icon / .medal / .school / .code) for colour.
+
+  FILTER CATEGORIES (data-category values):
+    web | mobile | ai — add new ones by also adding a filter-btn in .filter-tabs
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Ben Evans</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="fonts/bootstrap-icons/bootstrap-icons.min.css">
+</head>
+<body>
+
+<!-- ===== MOBILE TOP BAR (hidden on desktop) ===== -->
+<div class="mobile-topbar">
+    <button class="hamburger-btn" id="sidebarToggle" aria-label="Open navigation">
+        <i class="bi bi-list"></i>
+    </button>
+    <span class="mobile-topbar-title">Ben Evans</span>
+    <div class="hamburger-spacer"></div>
+</div>
+<div class="container">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation"><i class="bi bi-x-lg"></i></button>
+        <div class="profile-section">
+            <img src="./images/profile_image.png" class="profile-image-small" alt="Profile">
+            <div class="profile-text">
+                <h1 class="profile-name">Ben Evans</h1>
+                <p class="profile-sub">Software Engineer</p>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="bi bi-house"></i>Home</a></li>
+                <li><a href="projects.html" class="active"><i class="bi bi-code-slash"></i>Projects</a></li>
+                <li><a href="education.html"><i class="bi bi-mortarboard"></i>Education</a></li>
+                <li><a href="employment.html"><i class="bi bi-briefcase"></i>Employment</a></li>
+                <li><a href="about.html"><i class="bi bi-person"></i>About</a></li>
+                <li><a href="contact.html"><i class="bi bi-envelope"></i>Contact</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-content">
+        <header class="page-header">
+            <div>
+                <h1>Projects</h1>
+                <p>Selected works &amp; open-source contributions</p>
+            </div>
+            <div class="header-actions">
+                <div class="search-bar">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search projects...">
+                </div>
+            </div>
+        </header>
+
+        <div class="content-area">
+            <!-- Filter tabs -->
+            <div class="filter-tabs">
+                <button class="btn btn-sm btn-primary filter-btn active" data-filter="all">All</button>
+                <button class="btn btn-sm btn-secondary filter-btn" data-filter="web">Web</button>
+                <button class="btn btn-sm btn-secondary filter-btn" data-filter="mobile">Mobile</button>
+                <button class="btn btn-sm btn-secondary filter-btn" data-filter="ai">AI / ML</button>
+            </div>
+
+            <!-- Project cards -->
+            <div class="projects-grid" id="projectsGrid">
+
+                <article class="project-card" data-category="ai">
+                    <div class="project-banner">
+                        <img src="./images/proj-ai.jpg" alt="NeuralFlow Engine" loading="lazy">
+                        <div class="project-banner-overlay"></div>
+                        <span class="project-category">AI / ML</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>NeuralFlow Engine</h3>
+                        <p>High-performance AI inference engine built in Rust with WebAssembly targets for in-browser execution. Features custom tensor operations and dynamic graph compilation.</p>
+                        <div class="project-tags">
+                            <span class="tag">Rust</span>
+                            <span class="tag">WASM</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <button class="btn btn-primary btn-sm view-btn" style="flex:1;">View Details</button>
+                        <a href="#" class="btn btn-secondary btn-sm"><i class="bi bi-github"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="web">
+                    <div class="project-banner">
+                        <img src="./images/proj-web.jpg" alt="Architect UI Kit" loading="lazy">
+                        <div class="project-banner-overlay"></div>
+                        <span class="project-category">Web Dev</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Architect UI Kit</h3>
+                        <p>A comprehensive headless React component library with accessibility-first design. Ships with 45+ components, built-in theming, and zero-runtime CSS.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">CSS</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <button class="btn btn-primary btn-sm view-btn" style="flex:1;">View Details</button>
+                        <a href="#" class="btn btn-secondary btn-sm"><i class="bi bi-github"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="mobile">
+                    <div class="project-banner">
+                        <img src="./images/proj-mobile.jpg" alt="Vigor Mobile" loading="lazy">
+                        <div class="project-banner-overlay"></div>
+                        <span class="project-category">Mobile App</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Vigor Mobile</h3>
+                        <p>Cross-platform fitness tracking application with real-time biometric monitoring, custom workout plans, and social challenges integration.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Dart</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <button class="btn btn-primary btn-sm view-btn" style="flex:1;">View Details</button>
+                        <a href="#" class="btn btn-secondary btn-sm"><i class="bi bi-github"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="ai">
+                    <div class="project-banner">
+                        <img src="./images/proj-vision.jpg" alt="VisionNet Pipeline" loading="lazy">
+                        <div class="project-banner-overlay"></div>
+                        <span class="project-category">Computer Vision</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>VisionNet Pipeline</h3>
+                        <p>Real-time object detection and tracking pipeline using custom YOLO architecture. Optimized for edge deployment with TensorRT acceleration.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">CUDA</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <button class="btn btn-primary btn-sm view-btn" style="flex:1;">View Details</button>
+                        <a href="#" class="btn btn-secondary btn-sm"><i class="bi bi-github"></i></a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Achievements -->
+            <h3 class="section-title" style="margin-top: 40px;">
+                <i class="bi bi-trophy"></i>
+                Achievements &amp; Hackathons
+            </h3>
+            <div class="achievement-item">
+                <div class="achievement-icon"><i class="bi bi-trophy-fill"></i></div>
+                <div class="achievement-content">
+                    <h4>Global Tech Hackathon</h4>
+                    <p>1st Place — AI Track. Built a real-time mental health monitoring system using multi-modal sensor data.</p>
+                </div>
+                <span class="achievement-date">2023</span>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-icon medal"><i class="bi bi-award-fill"></i></div>
+                <div class="achievement-content">
+                    <h4>Open Source Contributor</h4>
+                    <p>Top 5 Finalist — Recognized for significant contributions to the Rust ML ecosystem.</p>
+                </div>
+                <span class="achievement-date">2023</span>
+            </div>
+        </div>
+
+        <!-- Project detail modal -->
+        <div class="modal-overlay" id="projectModal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2 id="modalTitle"></h2>
+                    <button class="modal-close" id="modalClose"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <p class="desc" id="modalDesc"></p>
+                    <div class="detail-section">
+                        <h4>Key Features</h4>
+                        <ul id="modalDetails"></ul>
+                    </div>
+                    <div class="detail-section">
+                        <h4>Technologies</h4>
+                        <div id="modalTags" style="display:flex;gap:8px;flex-wrap:wrap;"></div>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" id="modalGithub" class="btn btn-primary"><i class="bi bi-github"></i> View on GitHub</a>
+                        <button class="btn btn-secondary" id="modalCloseBottom">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <div class="footer-left">
+                <p>&copy; 2026 Ben Evans</p>
+                <a href="index.html" class="footer-home-btn"><i class="bi bi-house"></i> Back to Home</a>
+            </div>
+            <div class="footer-right">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </footer>
+    </main>
+</div>
+<script src="js/script.js"></script>
+<script src="js/projects.js"></script>
+</body>
+</html>

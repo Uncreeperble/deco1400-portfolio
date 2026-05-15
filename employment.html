@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--
+  employment.html — Professional Experience page
+
+  STRUCTURE:
+    .page-header      ← title + Resume download button
+    .content-section  ← wraps the whole .timeline
+    .timeline         ← vertical line; each job is a .timeline-item
+    .cta-section      ← blue call-to-action block at the bottom
+
+  TO ADD A NEW JOB:
+    Copy a <div class="timeline-item"> block inside .timeline (add at top for newest-first).
+    Update: company logo image, job title, company name, location, period, bullet points,
+            and the .skill-tag list.
+
+    TEMPLATE:
+      <div class="timeline-item">
+        <div class="job-header">
+          <div class="job-info">
+            <div class="company-logo" style="box-shadow: 0 4px 12px rgba(99,102,241,0.3);">
+              <img src="./images/company4.jpg" alt="Company Name">
+            </div>
+            <div class="job-title">
+              <h3>Job Title</h3>
+              <div class="job-company">Company Name</div>
+              <div class="job-location">City, Country</div>
+            </div>
+          </div>
+          <span class="job-period">Month Year – Month Year</span>
+        </div>
+        <div class="job-description">
+          <ul>
+            <li>What you did — use action verbs and measurable outcomes.</li>
+            <li>Another bullet point.</li>
+          </ul>
+        </div>
+        <div class="job-skills">
+          <span class="skill-tag">Skill 1</span>
+          <span class="skill-tag">Skill 2</span>
+        </div>
+      </div>
+
+  COMPANY LOGO IMAGES:
+    Add a square image to images/ named companyN.jpg (N = next number).
+    Recommended size: 120×120px or larger square.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employment | Ben Evans</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="fonts/bootstrap-icons/bootstrap-icons.min.css">
+</head>
+<body>
+
+<!-- ===== MOBILE TOP BAR (hidden on desktop) ===== -->
+<div class="mobile-topbar">
+    <button class="hamburger-btn" id="sidebarToggle" aria-label="Open navigation">
+        <i class="bi bi-list"></i>
+    </button>
+    <span class="mobile-topbar-title">Ben Evans</span>
+    <div class="hamburger-spacer"></div>
+</div>
+<div class="container">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation"><i class="bi bi-x-lg"></i></button>
+        <div class="profile-section">
+            <img src="./images/profile_image.png" class="profile-image-small" alt="Profile">
+            <div class="profile-text">
+                <h1 class="profile-name">Ben Evans</h1>
+                <p class="profile-sub">Software Engineer</p>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="bi bi-house"></i>Home</a></li>
+                <li><a href="projects.html"><i class="bi bi-code-slash"></i>Projects</a></li>
+                <li><a href="education.html"><i class="bi bi-mortarboard"></i>Education</a></li>
+                <li><a href="employment.html" class="active"><i class="bi bi-briefcase"></i>Employment</a></li>
+                <li><a href="about.html"><i class="bi bi-person"></i>About</a></li>
+                <li><a href="contact.html"><i class="bi bi-envelope"></i>Contact</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-content">
+        <header class="page-header">
+            <div>
+                <h1>Professional Experience</h1>
+                <p>Internships, work experience &amp; leadership</p>
+            </div>
+            <a href="files/resume.md" class="btn btn-secondary btn-sm"><i class="bi bi-download"></i> Resume</a>
+        </header>
+
+        <div class="content-area">
+            <div class="content-section">
+                <div class="timeline">
+                    <!-- JOB 1 -->
+                    <div class="timeline-item">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <div class="company-logo" style="box-shadow: 0 4px 12px rgba(99,102,241,0.3);">
+                                    <img src="./images/company1.jpg" alt="Technology Co.">
+                                </div>
+                                <div class="job-title">
+                                    <h3>Software Engineering Intern</h3>
+                                    <div class="job-company">Technology Co.</div>
+                                    <div class="job-location">Brisbane, Australia</div>
+                                </div>
+                            </div>
+                            <span class="job-period">Nov 2025 – Feb 2026</span>
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Developed and maintained RESTful APIs serving 50k+ daily requests using Node.js and Express.</li>
+                                <li>Implemented automated CI/CD pipelines with GitHub Actions, reducing deployment time by 40%.</li>
+                                <li>Collaborated with cross-functional teams to architect a microservices migration strategy.</li>
+                                <li>Wrote comprehensive unit and integration tests achieving 95% code coverage.</li>
+                            </ul>
+                        </div>
+                        <div class="job-skills">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">AWS</span>
+                        </div>
+                    </div>
+
+                    <!-- JOB 2 -->
+                    <div class="timeline-item">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <div class="company-logo" style="box-shadow: 0 4px 12px rgba(5,150,105,0.3);">
+                                    <img src="./images/company2.jpg" alt="UQ NLP Lab">
+                                </div>
+                                <div class="job-title">
+                                    <h3>Undergraduate Research Assistant</h3>
+                                    <div class="job-company">University of Queensland — NLP Lab</div>
+                                    <div class="job-location">Brisbane, Australia</div>
+                                </div>
+                            </div>
+                            <span class="job-period">Jun 2025 – Nov 2025</span>
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Built a text-to-speech accessibility tool for visually impaired students using Python and TensorFlow.</li>
+                                <li>Processed and cleaned 10GB+ of training data, improving model accuracy by 15%.</li>
+                                <li>Presented findings at the UQ Summer Research Symposium.</li>
+                                <li>Co-authored a paper submitted to ACL 2026 (under review).</li>
+                            </ul>
+                        </div>
+                        <div class="job-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">NLP</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">Jupyter</span>
+                        </div>
+                    </div>
+
+                    <!-- JOB 3 -->
+                    <div class="timeline-item">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <div class="company-logo" style="box-shadow: 0 4px 12px rgba(217,119,6,0.3);">
+                                    <img src="./images/company3.jpg" alt="Freelance">
+                                </div>
+                                <div class="job-title">
+                                    <h3>Freelance Web Developer</h3>
+                                    <div class="job-company">Self-Employed</div>
+                                    <div class="job-location">Remote</div>
+                                </div>
+                            </div>
+                            <span class="job-period">Jan 2024 – Present</span>
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Designed and deployed 10+ responsive websites for small businesses using React and Next.js.</li>
+                                <li>Integrated payment gateways and CMS solutions, increasing client revenue by an average of 25%.</li>
+                                <li>Provided ongoing maintenance, SEO optimisation, and performance tuning for client sites.</li>
+                            </ul>
+                        </div>
+                        <div class="job-skills">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Next.js</span>
+                            <span class="skill-tag">Tailwind</span>
+                            <span class="skill-tag">Stripe</span>
+                            <span class="skill-tag">Vercel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3>Let's Work Together</h3>
+                <p>I'm always open to new opportunities, collaborations, and interesting projects. Whether you need a developer, a collaborator, or just want to chat — I'd love to hear from you.</p>
+                <a href="contact.html" class="btn"><i class="bi bi-envelope"></i> Get in Touch</a>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <div class="footer-left">
+                <p>&copy; 2026 Ben Evans</p>
+                <a href="index.html" class="footer-home-btn"><i class="bi bi-house"></i> Back to Home</a>
+            </div>
+            <div class="footer-right">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </footer>
+    </main>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

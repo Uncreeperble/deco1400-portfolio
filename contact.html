@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--
+  contact.html — Contact page
+
+  STRUCTURE:
+    .page-header        ← title bar
+    .contact-hero       ← intro heading + blurb
+    .contact-methods    ← 3 cards: Email / LinkedIn / GitHub
+    .contact-map-section← Google Maps embed + location tags
+    .contact-form-section← contact form (handled by script.js)
+    .social-links       ← row of social icon circles at the bottom
+
+  TO EDIT:
+    • Email address   → update href="mailto:..." on the Email card button
+                        and the .social-link mailto: href at the bottom
+    • LinkedIn URL    → replace href="#" on the LinkedIn card button
+    • GitHub URL      → replace href="#" on the GitHub card + social link
+    • Location        → edit the map iframe src and the .map-tags spans
+    • Intro text      → .contact-hero h2 and p
+
+  TO ADD A CONTACT METHOD:
+    Copy one <div class="contact-method"> block inside .contact-methods.
+    Use a Bootstrap Icon class (bi-*) for the <i> tag.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Ben Evans</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="fonts/bootstrap-icons/bootstrap-icons.min.css">
+</head>
+<body>
+
+<!-- ===== MOBILE TOP BAR (hidden on desktop) ===== -->
+<div class="mobile-topbar">
+    <button class="hamburger-btn" id="sidebarToggle" aria-label="Open navigation">
+        <i class="bi bi-list"></i>
+    </button>
+    <span class="mobile-topbar-title">Ben Evans</span>
+    <div class="hamburger-spacer"></div>
+</div>
+<div class="container">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation"><i class="bi bi-x-lg"></i></button>
+        <div class="profile-section">
+            <img src="./images/profile_image.png" class="profile-image-small" alt="Profile">
+            <div class="profile-text">
+                <h1 class="profile-name">Ben Evans</h1>
+                <p class="profile-sub">Software Engineer</p>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="bi bi-house"></i>Home</a></li>
+                <li><a href="projects.html"><i class="bi bi-code-slash"></i>Projects</a></li>
+                <li><a href="education.html"><i class="bi bi-mortarboard"></i>Education</a></li>
+                <li><a href="employment.html"><i class="bi bi-briefcase"></i>Employment</a></li>
+                <li><a href="about.html"><i class="bi bi-person"></i>About</a></li>
+                <li><a href="contact.html" class="active"><i class="bi bi-envelope"></i>Contact</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-content">
+        <header class="page-header">
+            <div>
+                <h1>Contact</h1>
+                <p>Get in touch — I'd love to hear from you</p>
+            </div>
+        </header>
+
+        <div class="content-area">
+            <div class="contact-hero">
+                <h2>Let's Connect</h2>
+                <p>Whether you have a project in mind, a collaboration idea, or just want to say hello — I'm always open to a good conversation. I'm based in Brisbane, Australia, and I'll be in Japan for 10 days from next week, but I'll still be checking emails!</p>
+            </div>
+
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <i class="bi bi-envelope-fill"></i>
+                    <h3>Email</h3>
+                    <p>The fastest way to reach me</p>
+                    <a href="mailto:ben.evans@example.com" class="btn btn-primary btn-sm">Send Email</a>
+                </div>
+                <div class="contact-method">
+                    <i class="bi bi-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Let's connect professionally</p>
+                    <a href="#" class="btn btn-secondary btn-sm">View Profile</a>
+                </div>
+                <div class="contact-method">
+                    <i class="bi bi-github"></i>
+                    <h3>GitHub</h3>
+                    <p>Check out my open-source work</p>
+                    <a href="#" class="btn btn-secondary btn-sm">View Repos</a>
+                </div>
+            </div>
+
+            <!-- Location Map -->
+            <div class="contact-map-section content-section">
+                <h3 class="section-title">
+                    <i class="bi bi-geo-alt"></i>
+                    Based in Brisbane, Australia
+                </h3>
+                <div class="map-embed">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113785.6746930172!2d152.97185377044248!3d-27.47045403035013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b91579aac93d233%3A0x402a35af3deaf50!2sBrisbane%20QLD!5e0!3m2!1sen!2sau!4v1680000000000!5m2!1sen!2sau"
+                        width="100%" height="280" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="map-tags">
+                    <span class="tag"><i class="bi bi-geo-alt"></i> Brisbane QLD</span>
+                    <span class="tag"><i class="bi bi-clock"></i> AEST (UTC+10)</span>
+                    <span class="tag"><i class="bi bi-globe"></i> Open to remote / hybrid</span>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-section content-section">
+                <h3 class="section-title">
+                    <i class="bi bi-chat-dots"></i>
+                    Send a Message
+                </h3>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project, idea, or just say hi..." required></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-send"></i> Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-link" title="GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" class="social-link" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="social-link" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="mailto:ben.evans@example.com" class="social-link" title="Email"><i class="bi bi-envelope-fill"></i></a>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <div class="footer-left">
+                <p>&copy; 2026 Ben Evans</p>
+                <a href="index.html" class="footer-home-btn"><i class="bi bi-house"></i> Back to Home</a>
+            </div>
+            <div class="footer-right">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </footer>
+    </main>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

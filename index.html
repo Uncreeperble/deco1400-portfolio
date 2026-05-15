@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--
+  index.html — Home / Landing Page
+  
+  STRUCTURE:
+    .sidebar        ← left nav (same on every page — just change which link has class="active")
+    .hero-section   ← big name + hero image
+    .quick-links    ← 3 nav cards to Projects / Education / Employment
+    .site-footer    ← copyright + links
+
+  TO EDIT:
+    • Name / title      → .profile-name, .profile-sub (sidebar) + h1/h2 in .hero-content
+    • Hero image        → images/hero.png
+    • Profile picture   → images/profile_image.png
+    • Add a quick-link  → copy one <a class="link-card"> block inside .quick-links
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ben Evans | Software Engineer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="fonts/bootstrap-icons/bootstrap-icons.min.css">
+</head>
+<body>
+
+<!-- ===== MOBILE TOP BAR (hidden on desktop) ===== -->
+<div class="mobile-topbar">
+    <button class="hamburger-btn" id="sidebarToggle" aria-label="Open navigation">
+        <i class="bi bi-list"></i>
+    </button>
+    <span class="mobile-topbar-title">Ben Evans</span>
+    <div class="hamburger-spacer"></div>
+</div>
+<div class="container">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ===================== SIDEBAR =====================
+         Appears on every page. Change class="active" to
+         highlight the current page link.
+    ====================================================== -->
+    <aside class="sidebar" id="sidebar">
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation"><i class="bi bi-x-lg"></i></button>
+        <div class="profile-section">
+            <!-- Profile picture: swap images/profile_image.png -->
+            <img src="./images/profile_image.png" class="profile-image-small" alt="Profile">
+            <div class="profile-text">
+                <h1 class="profile-name">Ben Evans</h1>       <!-- your name -->
+                <p class="profile-sub">Software Engineer</p>  <!-- your title -->
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <!-- Add class="active" to the current page link -->
+                <li><a href="index.html" class="active"><i class="bi bi-house"></i>Home</a></li>
+                <li><a href="projects.html"><i class="bi bi-code-slash"></i>Projects</a></li>
+                <li><a href="education.html"><i class="bi bi-mortarboard"></i>Education</a></li>
+                <li><a href="employment.html"><i class="bi bi-briefcase"></i>Employment</a></li>
+                <li><a href="about.html"><i class="bi bi-person"></i>About</a></li>
+                <li><a href="contact.html"><i class="bi bi-envelope"></i>Contact</a></li>
+                <!-- To add a new page: add a new <li> here and create the .html file -->
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <!-- =================== HERO ====================
+             Large intro section. Edit h1, h2, p, and the
+             href on the button to change where it points.
+        ================================================= -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Hi, I'm Ben Evans</h1>           <!-- main heading -->
+                <h2>Welcome to my Portfolio</h2>     <!-- subtitle -->
+                <p>I am passionate about software development and problem-solving. I am eager to apply my knowledge and skills in a professional setting and contribute to innovative projects in the tech industry.</p>
+                <a href="projects.html" class="btn btn-primary btn-lg">
+                    <i class="bi bi-arrow-right"></i> View My Work
+                </a>
+            </div>
+            <div class="hero-image">
+                <!-- Hero image: swap images/hero.png with your own photo -->
+                <img src="./images/hero.png" alt="Ben Evans">
+            </div>
+        </section>
+
+        <!-- ================ QUICK-LINK CARDS ============
+             3 cards linking to key pages.
+             TO ADD A CARD: copy one <a class="link-card">
+             block and update the href, icon, h3, and p.
+        ================================================= -->
+        <section class="quick-links">
+
+            <a href="projects.html" class="link-card">
+                <div class="link-icon"><i class="bi bi-code-slash"></i></div>
+                <div class="link-content">
+                    <h3>Personal Projects &amp; Hackathons</h3>
+                    <p>Explore a collection of things I have worked on, and participated in — learn more about what was involved, and how it shaped me.</p>
+                </div>
+                <span class="link-arrow">Explore &rarr;</span>
+            </a>
+
+            <a href="education.html" class="link-card">
+                <div class="link-icon"><i class="bi bi-mortarboard"></i></div>
+                <div class="link-content">
+                    <h3>Education</h3>
+                    <p>A rigorous background in Computer Science, specialising in statistical learning and AI — examine coursework, results and achievements.</p>
+                </div>
+                <span class="link-arrow">Learn More &rarr;</span>
+            </a>
+
+            <a href="employment.html" class="link-card">
+                <div class="link-icon"><i class="bi bi-briefcase"></i></div>
+                <div class="link-content">
+                    <h3>Professional Experience</h3>
+                    <p>See the record of internships and work experience in my portfolio — with the ability to dive into the details.</p>
+                </div>
+                <span class="link-arrow">See More &rarr;</span>
+            </a>
+
+        </section>
+
+        <!-- =================== FOOTER ================== -->
+        <footer class="site-footer">
+            <div class="footer-left">
+                <p>&copy; 2026 Ben Evans</p>
+                <a href="index.html" class="footer-home-btn"><i class="bi bi-house"></i> Back to Home</a>
+            </div>  <!-- update year -->
+            <div class="footer-right">
+                <!-- Replace # with real URLs -->
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </footer>
+
+    </main>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
